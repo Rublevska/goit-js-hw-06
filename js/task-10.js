@@ -16,7 +16,8 @@ function onBtnCreate() {
 }
 
 function onBtnDestroy() {
-  refs.boxesEl.remove();
+  refs.boxesEl.replaceChildren();
+  size = 30;
 }
 
 function createBoxes(amount) {
@@ -28,7 +29,7 @@ function createBoxes(amount) {
     fragmentEl.append(divEl);
     size += 10;
   }
-  refs.boxesEl.appendChild(fragmentEl);
+  refs.boxesEl.append(fragmentEl);
 }
 
 function getRandomHexColor() {
