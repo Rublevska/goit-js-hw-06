@@ -1,7 +1,7 @@
 const refs = {
   boxesEl: document.getElementById("boxes"),
   createBtnEl: document.querySelector("[data-create]"),
-  destroyBtnEl: document.querySelector("[data-create]"),
+  destroyBtnEl: document.querySelector("[data-destroy]"),
   inputEl: document.querySelector("#controls input"),
 };
 
@@ -27,9 +27,7 @@ function createBoxes(amount) {
     divEl.style.backgroundColor = getRandomHexColor();
     fragmentEl.append(divEl);
     size += 10;
-    console.log(divEl);
   }
-  console.dir(fragmentEl);
   refs.boxesEl.appendChild(fragmentEl);
 }
 
