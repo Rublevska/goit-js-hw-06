@@ -5,22 +5,20 @@ const refs = {
   inputEl: document.querySelector("#controls input"),
 };
 
-let size = 30;
-const fragmentEl = document.createDocumentFragment();
-
 refs.createBtnEl.addEventListener("click", onBtnCreate);
 refs.destroyBtnEl.addEventListener("click", onBtnDestroy);
 
 function onBtnCreate() {
-  createBoxes(refs.inputEl.valueAsNumber);
+  refs.boxesEl.append(createBoxes(refs.inputEl.valueAsNumber));
 }
 
 function onBtnDestroy() {
   refs.boxesEl.replaceChildren();
-  size = 30;
 }
 
 function createBoxes(amount) {
+  let size = 30;
+  const fragmentEl = document.createDocumentFragment();
   for (let index = 0; index < amount; index++) {
     const divEl = document.createElement("div");
     divEl.style.width = size + "px";
@@ -29,7 +27,7 @@ function createBoxes(amount) {
     fragmentEl.append(divEl);
     size += 10;
   }
-  refs.boxesEl.append(fragmentEl);
+  return fragmentEl;
 }
 
 function getRandomHexColor() {
